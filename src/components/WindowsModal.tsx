@@ -164,7 +164,9 @@ export default function WindowsModal({
                 Cancel
               </button>
               <a
-                href="https://drive.google.com/uc?id=1i7uASoWjXKJwhHz-bRWeDLyOmHTJf96R"
+                href="https://drive.google.com/uc?export=download&confirm=t&id=1i7uASoWjXKJwhHz-bRWeDLyOmHTJf96R"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => {
                   onConfirm();
                   onClose();

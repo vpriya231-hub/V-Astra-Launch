@@ -37,13 +37,28 @@ export default function DownloadSection({
               ? "bg-slate-850 text-slate-200 group-hover:bg-slate-750 group-hover:text-white" 
               : "bg-slate-100 text-slate-700 group-hover:bg-slate-200 group-hover:text-black"
           }`}>
-            {/* Custom Google Play SVG */}
+            {/* Custom Google Play SVG with official full-colored branding */}
             <svg
               className="h-5 w-5"
               viewBox="0 0 24 24"
-              fill="currentColor"
+              fill="none"
             >
-              <path d="M3 5.27v13.46c0 .81.45 1.54 1.17 1.9l9.36-9.36L4.17 3.37c-.72.36-1.17 1.09-1.17 1.9zM19.83 10.1l-4.13-2.38-1.53 1.53 1.53 1.53 4.13-2.38c.67-.39.67-1.35 0-1.74zM14.63 11.27l-9.36 9.36 10.46-6.04c.67-.39.67-1.35 0-1.74l-1.1-1.58zM14.63 11.27L5.27 3.37l9.36 9.36.01.01z" />
+              <path
+                d="M3.609 1.814C3.213 2.193 3 2.782 3 3.535v16.93c0 .753.213 1.342.609 1.721L12.566 12 3.609 1.814z"
+                fill="#00C3FF"
+              />
+              <path
+                d="M16.514 15.541l-3.948-3.541 3.948-3.541 4.545 2.624c1.1.635 1.1 1.666 0 2.301l-4.545 2.624z"
+                fill="#FFD600"
+              />
+              <path
+                d="M12.566 12L3.609 21.186c.394.375.992.355 1.656-.027l12.249-7.078-4.948-2.081z"
+                fill="#00E676"
+              />
+              <path
+                d="M12.566 12l4.948-2.081-12.249-7.078C4.601 2.46 4.003 2.44 3.609 2.815L12.566 12z"
+                fill="#FF3366"
+              />
             </svg>
           </div>
           <div className="text-left">

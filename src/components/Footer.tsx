@@ -17,6 +17,31 @@ export default function Footer({ hasDownloaded, isDarkMode }: FooterProps) {
       id="main-app-footer"
     >
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center justify-center gap-4">
+        {/* Privacy Policy and Support Links */}
+        <div className="mb-1 flex items-center justify-center gap-4">
+          <a
+            href="https://sites.google.com/view/v-astra-ai/home"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-xs font-medium underline transition-all hover:opacity-100 ${
+              isDarkMode ? "text-slate-400 hover:text-white opacity-80" : "text-slate-500 hover:text-slate-900 opacity-80"
+            }`}
+            id="privacy-policy-link"
+          >
+            Privacy Policy
+          </a>
+          <span className={`text-xs opacity-40 ${isDarkMode ? "text-slate-400" : "text-slate-500"}`}>•</span>
+          <a
+            href="mailto:supportvastra@gmail.com"
+            className={`text-xs font-medium underline transition-all hover:opacity-100 ${
+              isDarkMode ? "text-slate-400 hover:text-white opacity-80" : "text-slate-500 hover:text-slate-900 opacity-80"
+            }`}
+            id="support-link"
+          >
+            Support
+          </a>
+        </div>
+
         {/* Animated Dynamic Message */}
         <div className="min-h-[40px] flex items-center justify-center font-display text-base font-semibold">
           <AnimatePresence mode="wait">
