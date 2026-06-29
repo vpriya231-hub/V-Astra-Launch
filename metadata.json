@@ -1,0 +1,6 @@
+{
+  "name": "V Astra AI",
+  "description": "A sleek, responsive landing website for the advanced V Astra AI assistant application.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
