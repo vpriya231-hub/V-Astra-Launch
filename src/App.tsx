@@ -79,8 +79,8 @@ export default function App() {
       {/* Header */}
       <Header isDarkMode={isDarkMode} onToggleTheme={toggleTheme} />
 
-      {/* Main Content Area: Centered Single Column Layout */}
-      <main className="flex-1 max-w-3xl w-full mx-auto px-6 flex flex-col justify-center items-center py-16 sm:py-24 relative z-10 space-y-12">
+      {/* Main Content Area: Centered Single Column Layout with Desktop-First Optimization */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-6 flex flex-col justify-center items-center py-16 sm:py-24 relative z-10 space-y-12">
         
         {/* App Introduction Hero */}
         <section className="text-center space-y-6 w-full" id="hero-section">
@@ -118,7 +118,7 @@ export default function App() {
         </section>
 
         {/* Focused Download Interface Section */}
-        <section className="w-full max-w-md mx-auto space-y-6" id="download-section">
+        <section className="w-full max-w-5xl mx-auto space-y-6" id="download-section">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

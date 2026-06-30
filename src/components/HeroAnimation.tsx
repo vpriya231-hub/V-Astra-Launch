@@ -10,16 +10,43 @@ export default function HeroAnimation({ isDarkMode }: HeroAnimationProps) {
   const text = "Welcome to V Astra AI by V Astra AI Studio";
   const characters = Array.from(text);
 
-  // Custom motion transitions for premium, satisfyingly steady letter reveal
-  const charTransition = (index: number) => ({
-    ease: [0.16, 1, 0.3, 1], // Custom ultra-smooth easeOutExpo cubic bezier
-    duration: 1.4,
-    delay: index * 0.055, // 55ms steady delay per letter for a very smooth typing/fade flow
-  });
+  // Parent container that staggers its children for a strict sequential typewriter effect
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05, // 50ms steady delay per letter for a satisfying typed flow
+      },
+    },
+  };
+
+  // Individual character animations
+  const charVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 12,
+      filter: "blur(4px)" 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      filter: "blur(0px)",
+      transition: { 
+        duration: 0.35,
+        ease: [0.25, 1, 0.5, 1], // fluid, premium easeOutQuad/Quart
+      } 
+    },
+  };
 
   return (
     <div className="text-center select-none py-4" id="hero-heading-container">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight leading-tight py-2 flex flex-wrap justify-center max-w-4xl mx-auto">
+      <motion.h1 
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="text-4xl sm:text-5xl md:text-6xl font-bold font-display tracking-tight leading-tight py-2 flex flex-wrap justify-center max-w-4xl mx-auto"
+      >
         {characters.map((char, index) => {
           // Identify brand segments for coloring
           // "V Astra AI" is indices 11 to 20
@@ -40,27 +67,25 @@ export default function HeroAnimation({ isDarkMode }: HeroAnimationProps) {
             charClass = isDarkMode ? "text-slate-100 font-bold" : "text-slate-900 font-bold";
           }
 
-          // Use \u00A0 for spaces to prevent collapsing in flex layout, with custom width
+          // Use inline-block with margins for letter spacing
           return (
             <motion.span
               key={index}
-              initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={charTransition(index)}
+              variants={charVariants}
               className={`inline-block ${charClass} ${char === " " ? "w-[0.25em]" : ""}`}
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>
           );
         })}
-      </h1>
+      </motion.h1>
 
       {/* Elegant Gemini-like sliding color line decoration below heading */}
       <div className="max-w-xs mx-auto mt-6 h-1 relative overflow-hidden rounded-full">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
-          transition={{ delay: 1.8, duration: 2.0, ease: "easeOut" }}
+          transition={{ delay: 2.2, duration: 1.8, ease: "easeOut" }}
           className={`h-full bg-gradient-to-r ${
             isDarkMode
               ? "from-violet-500 via-fuchsia-500 to-cyan-400"
