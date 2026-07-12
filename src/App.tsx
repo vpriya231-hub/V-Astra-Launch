@@ -4,6 +4,7 @@ import HeroAnimation from "./components/HeroAnimation";
 import DownloadSection from "./components/DownloadSection";
 import WindowsModal from "./components/WindowsModal";
 import Footer from "./components/Footer";
+import FireworkOverlay from "./components/FireworkOverlay";
 import { Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -63,6 +64,9 @@ export default function App() {
       }`}
       id="main-app-container"
     >
+      {/* High-quality celebratory firework animation overlay with Liquid Glass effect */}
+      <FireworkOverlay isDarkMode={isDarkMode} />
+
       {/* Decorative Blur Backgrounds (Adaptive based on Theme) */}
       {isDarkMode ? (
         <>
@@ -113,7 +117,7 @@ export default function App() {
             }`}
             id="hero-description"
           >
-            V Astra AI is an advanced offline-first assistant application designed to optimize your workspace productivity, deliver swift cognitive processing, and unlock localized intelligence across all your platforms.
+            V Astra AI is an advanced online assistant application designed to optimize your workspace productivity, deliver swift cognitive processing, and unlock connected intelligence across all your platforms.
           </motion.p>
         </section>
 
